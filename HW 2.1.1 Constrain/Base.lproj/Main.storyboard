@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,33 +24,51 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPc-2B-hW4">
-                                <rect key="frame" x="75.5" y="513" width="224" height="48"/>
-                                <color key="backgroundColor" name="AccentColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5AV-xi-cCB">
+                                <rect key="frame" x="77.5" y="493" width="220" height="112"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPc-2B-hW4">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Show Text">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showTextButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="rT7-hi-YK8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C40-eE-i2B">
+                                        <rect key="frame" x="0.0" y="64" width="220" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Go to second VC">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="5me-DK-fEG" kind="presentation" id="PgV-7c-3E4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="KAv-7K-vOw"/>
+                                    <constraint firstAttribute="width" constant="220" id="A6w-dy-eVT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Show Text">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="showTextButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="rT7-hi-YK8"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5AV-xi-cCB" secondAttribute="bottom" constant="62" id="4cl-4m-ST4"/>
                             <constraint firstItem="Bwt-Yw-6bc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="152" id="8Ba-8S-Pq6"/>
+                            <constraint firstItem="5AV-xi-cCB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IgA-qH-FPe"/>
                             <constraint firstItem="Bwt-Yw-6bc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="Orh-2A-YBO"/>
-                            <constraint firstItem="TPc-2B-hW4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PA0-u3-JSE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TPc-2B-hW4" secondAttribute="bottom" constant="106" id="QkQ-ve-1FN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bwt-Yw-6bc" secondAttribute="trailing" constant="26" id="voE-ac-i78"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="goToSecondVCButton" destination="C40-eE-i2B" id="hI6-Lf-lRE"/>
                         <outlet property="helloWorldLabel" destination="Bwt-Yw-6bc" id="E6U-BY-ZKL"/>
                         <outlet property="showTextButton" destination="TPc-2B-hW4" id="HeX-Va-eIN"/>
                     </connections>
@@ -58,10 +77,52 @@
             </objects>
             <point key="canvasLocation" x="-234" y="-18"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="8EZ-xh-AOB">
+            <objects>
+                <viewController id="5me-DK-fEG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JNj-Fd-IpO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aDK-kS-tun">
+                                <rect key="frame" x="16" y="60" width="343" height="527"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00" translatesAutoresizingMaskIntoConstraints="NO" id="tTz-ad-Rs0">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="255.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My first APP on Swift. I can do it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8z-l5-Mbb">
+                                        <rect key="frame" x="30" y="271.5" width="283.5" height="255.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lp3-gc-hJG"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aDK-kS-tun" secondAttribute="trailing" constant="16" id="EC1-Ue-agj"/>
+                            <constraint firstItem="aDK-kS-tun" firstAttribute="top" secondItem="Lp3-gc-hJG" secondAttribute="top" constant="60" id="aTz-0t-2S0"/>
+                            <constraint firstAttribute="bottom" secondItem="aDK-kS-tun" secondAttribute="bottom" constant="60" id="gET-hI-gV0"/>
+                            <constraint firstItem="aDK-kS-tun" firstAttribute="leading" secondItem="Lp3-gc-hJG" secondAttribute="leading" constant="16" id="o9T-Yt-3Lb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2AH-sC-0ae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="-18.440779610194905"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="00" width="750" height="552"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
